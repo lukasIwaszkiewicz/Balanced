@@ -1,0 +1,12 @@
+<div class="container mx-auto h-full">
+  <mat-card style="background: linear-gradient(226deg, #696f7d, #212121)" class="h-full">
+    <app-budget-items-container
+      class="w-full"
+      *ngFor="let bit of budgetItemTypes"
+      [configuration]="bit"
+    ></app-budget-items-container>
+    <app-total-budget></app-total-budget>
+  </mat-card>
+</div>
+
+<!--<router-outlet></router-outlet>-->

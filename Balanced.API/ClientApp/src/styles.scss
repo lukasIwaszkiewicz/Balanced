@@ -1,0 +1,60 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '~@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$balancedApp-primary: mat.define-palette(mat.$light-blue-palette);
+$balancedApp-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$balancedApp-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$balancedApp-theme: mat.define-dark-theme((
+  color: (
+    primary: $balancedApp-primary,
+    accent: $balancedApp-accent,
+    warn: $balancedApp-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($balancedApp-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #333333
+}
+
+button:focus {
+  @apply outline-none
+}
+
+.hole {
+  background-color: #333333;
+  box-shadow: inset -2px 2px 4px 0 #00000091;
+  @apply border-b border-l border-gray-500 my-2 rounded p-2
+}
+.mat-dialog-container {
+  background: linear-gradient(226deg, #696f7d, #333333)
+}
