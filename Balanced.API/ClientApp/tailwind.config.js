@@ -1,6 +1,6 @@
 module.exports = {
   purge: {
-    enabled: true,
+    // enabled: true,
     content: ['./src/**/*.html']
   },
   darkMode: 'media', // or 'media' or 'class'

@@ -39,7 +39,8 @@ export class BudgetService {
   delete(budgetItem: BudgetItem) {
     const idx = this._items$[budgetItem.budgetItemType].value.indexOf(budgetItem);
     if (idx > -1) {
-      this._items$[budgetItem.budgetItemType].next(this._items$[budgetItem.budgetItemType].value.splice(idx, 1))
+      this._items$[budgetItem.budgetItemType].value.splice(idx, 1)
+      this._items$[budgetItem.budgetItemType].next(this._items$[budgetItem.budgetItemType].value)
     }
   }
 }
